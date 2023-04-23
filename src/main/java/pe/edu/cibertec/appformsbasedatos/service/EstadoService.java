@@ -17,4 +17,12 @@ public class EstadoService {
         return estadoRepository.findAll();
     }
 
+    public void registrarEstado(Estado estado){
+        estadoRepository.save(estado);
+    }
+
+    public void eliminarEstado(Estado estado){
+        estadoRepository.deleteById(estado.getIdestado());
+    }
+
 }
