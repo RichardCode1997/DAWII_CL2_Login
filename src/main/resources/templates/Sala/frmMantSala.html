@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::head">
+</head>
+<body>
+<nav th:insert="layout::menu"></nav>
+<div class="card ">
+  <div class="card-header text-bg-dark mb-3">
+    Lista de Estados Salas
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Nro.Asientos</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="sala :${listaSalas}">
+        <td th:text="${sala.idsala}"></td>
+        <td th:text="${sala.descsala}"></td>
+        <td th:text="${sala.asientos}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
