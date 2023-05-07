@@ -13,6 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Sala {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idsala;
     @Column(name = "descsala")
     private String descsala;

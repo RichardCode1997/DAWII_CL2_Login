@@ -27,12 +27,16 @@ public class SalaController {
     }
 
     @PostMapping("/registrarSala")
+    @ResponseBody
     public ResultadoResponse registrarSala(@RequestBody
                                                SalaRequest salaRequest){
         String mensaje = "Sala registrada correctamente";
         Boolean respuesta = true;
         try{
             Sala objSala = new Sala();
+            if(salaRequest.getIdsala() > 0){
+                objSala.setIdsala(salaRequest.getIdsala());
+            }
             objSala.setDescsala(salaRequest.getDescsala());
             objSala.setAsientos(salaRequest.getAsientos());
             Estado objEstado = new Estado();

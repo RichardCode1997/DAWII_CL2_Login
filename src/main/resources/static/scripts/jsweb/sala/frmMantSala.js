@@ -39,3 +39,22 @@ $(document).on("click", ".btnactualizar", function(){
     })
     $("#modalNuevo").modal("show");
 });
+
+
+$(document).on("click", "#btnguardar", function(){
+    $.ajax({
+        type: "POST",
+        url: "/Sala/registrarSala",
+        contentType: "application/json",
+        data: JSON.stringify({
+            idsala: $("#hddidsala").val(),
+            descsala: $("#txtdescsala").val(),
+            asientos: $("#txtnroasientos").val(),
+            idestado: $("#cboestado").val()
+        }),
+        success: function(resultado){
+            alert(resultado.mensaje);
+        }
+    });
+    $("#modalNuevo").modal("hide");
+});
