@@ -21,7 +21,7 @@ public class Sala {
     private Integer asientos;
 
     @JsonBackReference
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "idestado")
     private Estado estado;
 

@@ -53,8 +53,40 @@ $(document).on("click", "#btnguardar", function(){
             idestado: $("#cboestado").val()
         }),
         success: function(resultado){
+            if(resultado.respuesta){
+                ListarSala();
+            }
             alert(resultado.mensaje);
         }
     });
     $("#modalNuevo").modal("hide");
 });
+
+function ListarSala(){
+    $.ajax({
+        type: "GET",
+        url: "/Sala/listarSalas",
+        dataType: "json",
+        success: function(resultado){
+            $("#tblsala > tbody").html("");
+            $.each(resultado, function(index, value){
+                $("#tblsala > tbody").append("<tr>"+
+                    "<td>"+value.idsala+"</td>"+
+                    "<td>"+value.descsala+"</td>"+
+                    "<td>"+value.asientos+"</td>"+
+                    "<td>"+
+                        "<button type='button' class='btn btn-info btnactualizar'"+
+                                     "data-idsala='"+value.idsala+"'"+
+                                     "data-descsala='"+value.descsala+"'"+
+                                     "data-asientos='"+value.asientos+"'"+
+                                     "data-idestado='"+value.idestado+"'>Actualizar</button>"+
+                    "</td>"+
+                    "<td>"+
+                        "<button type='button' class='btn btn-danger btneliminar'"+
+                                     "data-idsala='"+value.idsala+"'"+
+                                     "data-descsala='"+value.descsala+"'>Eliminar</button>"+
+                    "</td></tr>");
+            })
+        }
+    })
+}
