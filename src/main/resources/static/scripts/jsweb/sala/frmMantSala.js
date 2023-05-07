@@ -86,12 +86,14 @@ function ListarSala(){
         url: "/Sala/listarSalas",
         dataType: "json",
         success: function(resultado){
+
             $("#tblsala > tbody").html("");
             $.each(resultado, function(index, value){
                 $("#tblsala > tbody").append("<tr>"+
                     "<td>"+value.idsala+"</td>"+
                     "<td>"+value.descsala+"</td>"+
                     "<td>"+value.asientos+"</td>"+
+                    "<td>"+value.descestado+"</td>"+
                     "<td>"+
                         "<button type='button' class='btn btn-info btnactualizar'"+
                                      "data-idsala='"+value.idsala+"'"+

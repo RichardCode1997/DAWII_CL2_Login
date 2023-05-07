@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.cibertec.appformsbasedatos.model.bd.Estado;
 import pe.edu.cibertec.appformsbasedatos.model.bd.Sala;
+import pe.edu.cibertec.appformsbasedatos.model.jpqlobject.SalaEstado;
 import pe.edu.cibertec.appformsbasedatos.model.request.SalaRequest;
 import pe.edu.cibertec.appformsbasedatos.model.response.ResultadoResponse;
 import pe.edu.cibertec.appformsbasedatos.service.SalaService;
@@ -70,8 +71,8 @@ public class SalaController {
 
     @GetMapping("/listarSalas")
     @ResponseBody
-    public List<Sala> listarSalas(){
-        return salaService.listarSalas();
+    public List<SalaEstado> listarSalas(){
+        return salaService.listarSalaEstado();
     }
 
 
