@@ -86,7 +86,6 @@ function ListarSala(){
         url: "/Sala/listarSalas",
         dataType: "json",
         success: function(resultado){
-
             $("#tblsala > tbody").html("");
             $.each(resultado, function(index, value){
                 $("#tblsala > tbody").append("<tr>"+
