@@ -62,6 +62,24 @@ $(document).on("click", "#btnguardar", function(){
     $("#modalNuevo").modal("hide");
 });
 
+$(document).on("click", ".btneliminar", function(){
+    var idsala = $(this).attr("data-idsala");
+    $.ajax({
+        type: "DELETE",
+        url: "/Sala/eliminarSala",
+        contentType: "application/json",
+        data: JSON.stringify({
+            idsala: idsala
+        }),
+        success: function(resultado){
+            if(resultado.respuesta){
+                ListarSala();
+            }
+            alert(resultado.mensaje);
+        }
+    });
+});
+
 function ListarSala(){
     $.ajax({
         type: "GET",
