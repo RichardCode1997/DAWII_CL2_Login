@@ -61,9 +61,14 @@ $(document).on("click", "#btnguardar", function(){
     });
     $("#modalNuevo").modal("hide");
 });
-
 $(document).on("click", ".btneliminar", function(){
-    var idsala = $(this).attr("data-idsala");
+    $("#hddidsalaeliminar").val($(this).attr("data-idsala"));
+    $("#textomodaleliminar").text("¿Está seguro de eliminar la Sala "+
+        $(this).attr("data-descsala")+ "?");
+    $("#modalEliminar").modal("show");
+})
+$(document).on("click", "#btneliminar", function(){
+    var idsala = $("#hddidsalaeliminar").val();
     $.ajax({
         type: "DELETE",
         url: "/Sala/eliminarSala",
@@ -78,6 +83,7 @@ $(document).on("click", ".btneliminar", function(){
             alert(resultado.mensaje);
         }
     });
+    $("#modalEliminar").modal("hide");
 });
 
 function ListarSala(){
@@ -98,12 +104,12 @@ function ListarSala(){
                                      "data-idsala='"+value.idsala+"'"+
                                      "data-descsala='"+value.descsala+"'"+
                                      "data-asientos='"+value.asientos+"'"+
-                                     "data-idestado='"+value.idestado+"'>Actualizar</button>"+
+                                     "data-idestado='"+value.idestado+"'><i class='fas fa-edit'></i></button>"+
                     "</td>"+
                     "<td>"+
                         "<button type='button' class='btn btn-danger btneliminar'"+
                                      "data-idsala='"+value.idsala+"'"+
-                                     "data-descsala='"+value.descsala+"'>Eliminar</button>"+
+                                     "data-descsala='"+value.descsala+"'><i class='fas fa-trash-alt'></i></button>"+
                     "</td></tr>");
             })
         }
