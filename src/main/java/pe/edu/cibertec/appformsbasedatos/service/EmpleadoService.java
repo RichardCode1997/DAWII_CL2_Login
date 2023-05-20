@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service
 public class EmpleadoService {
-
     @Autowired
     private EmpleadoSpRepository empleadoSpRepository;
     @Autowired
@@ -20,7 +19,6 @@ public class EmpleadoService {
     public List<Empleado> listarEmpleado(){
         return empleadoRepository.findAll();
     }
-
     public void registrarEmpleado(EmpleadoSp empleadoSp){
         empleadoSpRepository.registrarEmpleado(empleadoSp.getNomempleado(),
                 empleadoSp.getApeempleado());

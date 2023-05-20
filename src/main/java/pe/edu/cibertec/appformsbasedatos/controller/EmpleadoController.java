@@ -11,17 +11,14 @@ import pe.edu.cibertec.appformsbasedatos.service.EmpleadoService;
 @Controller
 @RequestMapping("/Empleado")
 public class EmpleadoController {
-
     @Autowired
     private EmpleadoService empleadoService;
-
     @GetMapping("/frmListarEmpleados")
     public String frmListarEmpleados(Model model){
         model.addAttribute("listaempleados",
                 empleadoService.listarEmpleado());
         return "Empleado/frmMantEmpleado";
     }
-
     @PostMapping("/registrarEmpleado")
     @ResponseBody
     public ResultadoResponse registrarEmpleado(

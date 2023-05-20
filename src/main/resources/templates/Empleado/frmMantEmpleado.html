@@ -3,6 +3,8 @@
 <head th:replace="layout::head">
 </head>
 <body>
+<script th:src="@{/scripts/jsweb/empleado/frmMantEmpleado.js}"
+        type="text/javascript"></script>
 <nav th:insert="layout::menu"></nav>
 <div class="card ">
     <div class="card-header text-bg-dark mb-3">
@@ -33,7 +35,7 @@
         </table>
     </div>
 </div>
-<!-- Modal Registrar / Actualizar Sala -->
+<!-- Modal Registrar / Actualizar Empleado -->
 <div class="modal fade" id="modalNuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -43,18 +45,14 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="txtdescsala" class="form-label">Descripción Sala</label>
-                    <input type="text" class="form-control" id="txtdescsala">
+                    <label for="txtnomempleado" class="form-label">Nombre del Empleado</label>
+                    <input type="text" class="form-control" id="txtnomempleado">
                 </div>
                 <div class="mb-3">
-                    <label for="txtnroasientos" class="form-label">Nro.Asientos</label>
-                    <input type="number" class="form-control" id="txtnroasientos">
+                    <label for="txtapeempleado" class="form-label">Apellido del Empleado</label>
+                    <input type="text" class="form-control" id="txtapeempleado">
                 </div>
-                <div class="mb-3">
-                    <label for="cboestado" class="form-label">Estado</label>
-                    <select id="cboestado" class="form-control"></select>
-                </div>
-                <input type="hidden" id="hddidsala">
+                <input type="hidden" id="hddidempleado">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
