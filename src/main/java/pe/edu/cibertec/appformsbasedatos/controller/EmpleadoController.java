@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.cibertec.appformsbasedatos.model.bd.Empleado;
 import pe.edu.cibertec.appformsbasedatos.model.response.ResultadoResponse;
 import pe.edu.cibertec.appformsbasedatos.model.sp.EmpleadoSp;
 import pe.edu.cibertec.appformsbasedatos.service.EmpleadoService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/Empleado")
@@ -36,6 +39,11 @@ public class EmpleadoController {
                 .respuesta(respuesta).build();
     }
 
+    @GetMapping("/listarEmpleados")
+    @ResponseBody
+    public List<Empleado> listarEmpleados(){
+        return empleadoService.listarEmpleado();
+    }
 
 
 }
